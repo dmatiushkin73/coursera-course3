@@ -1,7 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
-import sass from 'gulp-sass';
+import nodeSass from 'node-sass'
+import gulpSass from 'gulp-sass';
 import browserSync from 'browser-sync';
 import del from 'del';
 import uglify from 'gulp-uglify';
@@ -11,6 +12,8 @@ import cleanCss from 'gulp-clean-css';
 import flatmap from 'gulp-flatmap';
 import htmlmin from 'gulp-htmlmin';
 import imagemin from "gulp-imagemin";
+
+const sass = gulpSass(nodeSass);
 
 gulp.task('sass', function() {
     return gulp.src('./css/*.scss').pipe(sass().on('error', sass.logError)).pipe(gulp.dest('./css'));
